@@ -1,8 +1,3 @@
-$(document).ready(function(){
-
-});
-
-
 
 
 $(document).on('click','#ping',function(e){
