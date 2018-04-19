@@ -1,21 +1,18 @@
 
 
 $(document).on('click','#ping',function(e){
-    alert("YES");
-    console.log("WHAT");
+    deleteProduct();
 });
 
 
-function deleteProduct (id, callback){
+function deleteProduct(){
     $.ajax({
-        type: 'DELETE',
-        url: ('/product'),
-        data: {
-            'id':id
-        },
+        type: 'GET',
+        url: ('/users'),
+        data: {},
         }).done(function(response){
             //var object = JSON.parse(response);
-            console.log('Deleted Product');
-            callback();
+            console.log(response);
+            $('#result').html(response);
         });
 }
