@@ -5,7 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const $ = require('cheerio');
-
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk('mongodb://heroku_9f4mwg54:jqfrh0hovp2l0bgbooaod55clo@ds249299.mlab.com:49299/heroku_9f4mwg54');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var weather = require('./routes/weather');
@@ -15,6 +17,11 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+//append db to request
+app.use(function(req,res,next){
+    req.db = db;
+    next();
+});
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
