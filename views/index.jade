@@ -3,7 +3,8 @@ extends layout
 block content
     -var weatherdata = data
     h1 Weatherstation
-    input.form-control(type="submit" value="Ping API" id="ping")
+    div#chart-location
+    div#chart-location2
     table#mytable
         thead
             th Datum
@@ -15,3 +16,4 @@ block content
                     td=data.date
                     td=data.temperature
                     td=data.pressure
+    input.form-control(type="submit" value="Ping API" id="ping")

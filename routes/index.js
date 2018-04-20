@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
     var db = req.db;
     var collection = db.get('weatherdata');
     var weatherdata = getDataFromDb(collection, renderPage);
-    console.log(weatherdata);
+    //console.log(weatherdata);
     function renderPage(weatherdata){
         res.render('index', { title: 'Express', data:weatherdata });
     }
