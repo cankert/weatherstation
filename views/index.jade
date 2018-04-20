@@ -4,10 +4,14 @@ block content
     -var weatherdata = data
     h1 Weatherstation
     input.form-control(type="submit" value="Ping API" id="ping")
-    table
+    table#mytable
         thead
+            th Datum
             th Temperatur
+            th Luftdruck
         tbody
             each data in weatherdata
                 tr
+                    td=data.date
                     td=data.temperature
+                    td=data.pressure

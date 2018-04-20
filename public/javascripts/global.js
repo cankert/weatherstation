@@ -14,7 +14,9 @@ function postWeatherData(){
         type: 'POST',
         url: ('/weather'),
         data: {
-            "temperature":"10"
+            "date":"",
+            "temperature":"10",
+            "pressure":"XYZ"
         },
         }).done(function(response){
             //var object = JSON.parse(response);

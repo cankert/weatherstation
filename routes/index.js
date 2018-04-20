@@ -8,14 +8,18 @@ var request = require('request');
 router.get('/', function(req, res, next) {
     var db = req.db;
     var collection = db.get('weatherdata');
-    var weatherdata = getDataFromDb(collection);
-    res.render('index', { title: 'Express', data:weatherdata });
+    var weatherdata = getDataFromDb(collection, renderPage);
+    console.log(weatherdata);
+    function renderPage(weatherdata){
+        res.render('index', { title: 'Express', data:weatherdata });
+    }
 });
 
 
-function getDataFromDb(collection){
-    var data = collection.find({},{},function(e,docs){});
-    return data;
+function getDataFromDb(collection,callback){
+    collection.find({},{},function(e,docs){
+        callback(docs);
+    });
 }
 
 module.exports = router;
