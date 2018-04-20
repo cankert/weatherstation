@@ -1,8 +1,13 @@
 extends layout
 
 block content
-  h1 Weatherstation
-  
-  input.form-control(type="submit" value="Ping API" id="ping")
-
-  div#result
+    -var weatherdata = data
+    h1 Weatherstation
+    input.form-control(type="submit" value="Ping API" id="ping")
+    table
+        thead
+            th Temperatur
+        tbody
+            each data in weatherdata
+                tr
+                    td=data.temperature

@@ -7,9 +7,8 @@ var bodyParser = require('body-parser');
 const $ = require('cheerio');
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('mongodb://heroku_9f4mwg54:jqfrh0hovp2l0bgbooaod55clo@ds249299.mlab.com:49299/heroku_9f4mwg54');
+var db = monk('mongodb://heroku_vs82jvd1:9chpb9u4gg72teg13729gmb7k1@ds251889.mlab.com:51889/heroku_vs82jvd1');
 var index = require('./routes/index');
-var users = require('./routes/users');
 var weather = require('./routes/weather');
 var app = express();
 
@@ -31,7 +30,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
 app.use('/weather', weather);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
