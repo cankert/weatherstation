@@ -53,7 +53,8 @@ $(function(){
         "numbersuffix": "°C",
         "xAxisName": "Datum",
         "yAxisName": "Celcius",
-        "lineThickness": "2"
+        "lineThickness": "5",
+        "palettecolors":"FF0000"
       };
 
       var categoriesArray = [{
@@ -61,7 +62,7 @@ $(function(){
       }];
 
       var lineChart = new FusionCharts({
-        type: 'msline',
+        type: 'zoomline',
         renderAt: 'chart-location',
         width: '800',
         height: '600',
@@ -92,7 +93,8 @@ $(function(){
         "numbersuffix": "mbar",
         "xAxisName": "Datum",
         "yAxisName": "Luftdruck",
-        "palettecolors":"FF5904,0372AB,FF0000"
+        "lineThickness": "5",
+        "palettecolors":"0372AB"
       };
 
       var categoriesArray = [{
@@ -100,7 +102,7 @@ $(function(){
       }];
 
       var lineChart = new FusionCharts({
-        type: 'mscolumn2d',
+        type: 'zoomline',
         renderAt: 'chart-location2',
         width: '800',
         height: '600',
