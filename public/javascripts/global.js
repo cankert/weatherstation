@@ -52,7 +52,8 @@ $(function(){
         "caption": "Temperatur",
         "numbersuffix": "°C",
         "xAxisName": "Datum",
-        "yAxisName": "Celcius"
+        "yAxisName": "Celcius",
+        "lineThickness": "2"
       };
 
       var categoriesArray = [{
