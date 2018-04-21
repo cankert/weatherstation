@@ -1,7 +1,13 @@
 extends layout
 
 block content
-    h1 Pi Wetterstation
+    h1(style="color:"+lastRgb) Pi Wetterstation
     div#chart-location
     div#chart-location2
+    br
+    br
+    br
     input.form-control(type="submit" value="Ping API" id="ping")
+    br
+    br
+    br

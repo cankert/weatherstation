@@ -17,9 +17,9 @@ function postWeatherData(){
             "date":"15.02.2018",
             "temperature":"28,5",
             "pressure":"66,3",
-            "red":"50",
-            "blue":"100",
-            "green":"30"
+            "red":"100",
+            "blue":"20",
+            "green":"256"
         },
         }).done(function(response){
             //var object = JSON.parse(response);
