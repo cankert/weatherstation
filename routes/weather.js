@@ -7,10 +7,14 @@ router.post('/', function(req, res, next) {
     var data = {
         "date":weather.date,
         "temperature": weather.temperature,
-        "pressure": weather.pressure
+        "pressure": weather.pressure,
+        "red":weather.red,
+        "green":weather.green,
+        "blue":weather.blue,
+        "light":weather.light
     }
     console.log('Received Data from API: ');
-    console.log(weather);
+    //console.log(weather);
     var db = req.db;
     var collection = db.get('weatherdata');
     collection.insert(data, function(err, result){
@@ -34,7 +38,7 @@ router.get('/', function(req, res, next) {
           var temperature = item.temperature;
           var date = item.date;
           var pressure = item.pressure;
-          console.log(pressure);
+         // console.log(pressure);
           dateArray.push({"label": date});
           temperatureArray.push({"value" : temperature});
           pressureArray.push({"value" : pressure});
@@ -71,7 +75,7 @@ router.get('/', function(req, res, next) {
             var temperature = item.temperature;
             var date = item.date;
             var pressure = item.pressure;
-            console.log(pressure);
+            //console.log(pressure);
             dateArray.push({"label": date});
             temperatureArray.push({"value" : temperature});
             pressureArray.push({"value" : pressure});
@@ -105,7 +109,7 @@ router.get('/pressure', function(req, res, next) {
           var temperature = item.temperature;
           var date = item.date;
           var pressure = item.pressure;
-          console.log(pressure);
+          //console.log(pressure);
           dateArray.push({"label": date});
           temperatureArray.push({"value" : temperature});
           pressureArray.push({"value" : pressure});

@@ -11,3 +11,11 @@ div {
     display:inline;
     margin:20px;
 }
+
+#boxes{
+    width:20px;
+    height: 20px;
+    margin:0;
+    display: inline-block;
+
+}

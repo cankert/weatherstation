@@ -16,7 +16,10 @@ function postWeatherData(){
         data: {
             "date":"15.02.2018",
             "temperature":"28,5",
-            "pressure":"66,3"
+            "pressure":"66,3",
+            "red":"50",
+            "blue":"100",
+            "green":"30"
         },
         }).done(function(response){
             //var object = JSON.parse(response);
@@ -31,7 +34,7 @@ $(function(){
     type: 'GET',
     success : function(data) {
       chartData = data;
-      console.log(chartData);
+      //console.log(chartData);
     }
   });
 });
@@ -64,8 +67,8 @@ $(function(){
       var lineChart = new FusionCharts({
         type: 'zoomline',
         renderAt: 'chart-location',
-        width: '800',
-        height: '600',
+        width: '600',
+        height: '500',
         dataFormat: 'json',
         dataSource: {
           chart: chartProperties,
@@ -90,7 +93,7 @@ $(function(){
 
       var chartProperties = {
         "caption": "Luftdruck",
-        "numbersuffix": "mbar",
+        "numbersuffix": "hPa",
         "xAxisName": "Datum",
         "yAxisName": "Luftdruck",
         "lineThickness": "5",
@@ -104,8 +107,8 @@ $(function(){
       var lineChart = new FusionCharts({
         type: 'zoomline',
         renderAt: 'chart-location2',
-        width: '800',
-        height: '600',
+        width: '600',
+        height: '500',
         dataFormat: 'json',
         dataSource: {
           chart: chartProperties,

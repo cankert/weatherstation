@@ -1,12 +1,21 @@
 doctype html
 html
+-var lastRgb = lastColor
   head
+
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body
+  body(style="background-color:"+lastRgb)
+
+    h1= lastRgb
+    -var weatherdata = data
+
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
     script(src='/javascripts/global.js')
     script(src='/javascripts/fusioncharts.js')
     script(src='/javascripts/fusioncharts.charts.js')
     script(src='/javascripts/fusioncharts.theme.zune.js')
+    each entry in weatherdata
+        -var rgbValue = "rgb("+entry.red+","+entry.green+","+entry.blue+")"
+        #boxes(style="background-color:"+rgbValue)
     block content
