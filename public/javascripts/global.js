@@ -7,8 +7,20 @@ $(document).on('click','#ping',function(e){
 
     }, 10000);
 });
+var rgbColor = "";
+function getCurrentColor(){
+    $.ajax({
+        type: 'GET',
+        url: ('/weather/all')
+        }).done(function(response){
+            //var object = JSON.parse(response);
+            console.log(response[0].red);
+            rgbColor = "rgb("+response[0].red+","+response[0].green+","+response[0].blue+")";
+            console.log(rgbColor);
 
-
+                $(document.body).css("background-color", rgbColor)
+        });
+}
 function postWeatherData(){
     $.ajax({
         type: 'POST',
@@ -27,21 +39,13 @@ function postWeatherData(){
         });
 }
 
-var chartData;
-$(function(){
-  $.ajax({
-    url: '/weather',
-    type: 'GET',
-    success : function(data) {
-      chartData = data;
-      //console.log(chartData);
-    }
-  });
-});
 
-var chartData;
 
-$(function(){
+getCurrentColor();
+
+
+
+function tempChart(){
   $.ajax({
 
     url: '/weather/temperature',
@@ -79,9 +83,9 @@ $(function(){
       lineChart.render();
     }
   });
-});
+}
 
-$(function(){
+function pressureChart(){
   $.ajax({
 
     url: '/weather/pressure',
@@ -119,4 +123,11 @@ $(function(){
       lineChart.render();
     }
   });
-});
+}
+pressureChart();
+tempChart();
+
+setInterval(function(){
+    pressureChart();
+    tempChart();
+}, 5000);

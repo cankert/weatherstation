@@ -98,6 +98,14 @@ router.get('/', function(req, res, next) {
     })
 });
 
+router.get('/all', function(req, res, next) {
+    var db = req.db;
+    var collection = db.get('weatherdata');
+    collection.find({},{limit:50,sort: {_id: -1}},function(e,docs){
+        res.send(docs)
+    });
+});
+
 router.get('/pressure', function(req, res, next) {
   var db = req.db;
   var collection = db.get('weatherdata');

@@ -12,4 +12,9 @@ html
     script(src='/javascripts/fusioncharts.theme.zune.js')
 
     block content
-        
+        if (typeof(weatherdata) !== 'undefined'){
+
+            each entry in weatherdata
+                -var rgbValue = "rgb("+entry.red+","+entry.green+","+entry.blue+")"
+                #boxes(style="background-color:"+rgbValue)
+        }
